@@ -25,12 +25,12 @@ dependencies:
   flutter_secure_storage: 
 
   # Local notifications
-  flutter_local_notifications: 
+  # flutter_local_notifications: 
 
   # Services
   intl: 
   get_it: 
-  uni_links: ^0.5.1
+  uni_links: 
   device_info_plus: 
   url_launcher: 
   share_extend: 

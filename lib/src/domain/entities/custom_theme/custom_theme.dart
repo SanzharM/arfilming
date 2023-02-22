@@ -1,7 +1,9 @@
 import 'dart:convert';
 
+import 'package:arfilming/src/core/services/utils.dart';
+import 'package:flutter/material.dart';
+
 import 'package:arfilming/src/core/flutter_gen/generated/colors.gen.dart';
-import 'package:flutter/painting.dart';
 
 class CustomTheme {
   const CustomTheme({
@@ -11,6 +13,7 @@ class CustomTheme {
     required this.hintColor,
     required this.successColor,
     required this.errorColor,
+    this.themeMode = ThemeMode.system,
   });
 
   final Color primaryColor;
@@ -19,6 +22,7 @@ class CustomTheme {
   final Color hintColor;
   final Color successColor;
   final Color errorColor;
+  final ThemeMode themeMode;
 
   static const CustomTheme defaultTheme = CustomTheme(
     primaryColor: AppColors.black,
@@ -36,6 +40,7 @@ class CustomTheme {
     Color? hintColor,
     Color? successColor,
     Color? errorColor,
+    ThemeMode? themeMode,
   }) {
     return CustomTheme(
       primaryColor: primaryColor ?? this.primaryColor,
@@ -44,6 +49,7 @@ class CustomTheme {
       hintColor: hintColor ?? this.hintColor,
       successColor: successColor ?? this.successColor,
       errorColor: errorColor ?? this.errorColor,
+      themeMode: themeMode ?? this.themeMode,
     );
   }
 
@@ -56,6 +62,7 @@ class CustomTheme {
     result.addAll({'hintColor': hintColor.value});
     result.addAll({'successColor': successColor.value});
     result.addAll({'errorColor': errorColor.value});
+    result.addAll({'themeMode': themeMode.name});
 
     return result;
   }
@@ -68,6 +75,7 @@ class CustomTheme {
       hintColor: Color(map['hintColor']),
       successColor: Color(map['successColor']),
       errorColor: Color(map['errorColor']),
+      themeMode: Utils.getThemeMode(map['themeMode']),
     );
   }
 
@@ -77,7 +85,7 @@ class CustomTheme {
 
   @override
   String toString() {
-    return 'CustomTheme(primaryColor: $primaryColor, secondaryColor: $secondaryColor, backgroundColor: $backgroundColor, hintColor: $hintColor, successColor: $successColor, errorColor: $errorColor)';
+    return 'CustomTheme(primaryColor: $primaryColor, secondaryColor: $secondaryColor, backgroundColor: $backgroundColor, hintColor: $hintColor, successColor: $successColor, errorColor: $errorColor, themeMode: $themeMode)';
   }
 
   @override
@@ -90,7 +98,8 @@ class CustomTheme {
         other.backgroundColor == backgroundColor &&
         other.hintColor == hintColor &&
         other.successColor == successColor &&
-        other.errorColor == errorColor;
+        other.errorColor == errorColor &&
+        other.themeMode == themeMode;
   }
 
   @override
@@ -100,6 +109,7 @@ class CustomTheme {
         backgroundColor.hashCode ^
         hintColor.hashCode ^
         successColor.hashCode ^
-        errorColor.hashCode;
+        errorColor.hashCode ^
+        themeMode.hashCode;
   }
 }

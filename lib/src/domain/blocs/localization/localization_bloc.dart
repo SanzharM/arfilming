@@ -1,5 +1,5 @@
 import 'package:arfilming/src/core/l10n/generated/l10n.dart';
-import 'package:arfilming/src/core/l10n/l10n.dart';
+import 'package:arfilming/src/core/l10n/l10n_service.dart';
 import 'package:arfilming/src/core/services/local_storage/local_storage.dart';
 import 'package:arfilming/src/service_locator.dart';
 import 'package:equatable/equatable.dart';

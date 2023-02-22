@@ -1,10 +1,10 @@
 flutter_icons:
-  android: true
+  android: "launcher_icon"
   ios: true
   web:
     generate: true
-    # background_color: "#hexcode"
-    # theme_color: "#hexcode"
+    background_color: "#hexcode"
+    theme_color: "#hexcode"
   windows:
     generate: true
     icon_size: 48 # min:48, max:256, default: 48

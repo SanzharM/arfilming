@@ -25,12 +25,12 @@ class CustomTheme {
   final ThemeMode themeMode;
 
   static const CustomTheme defaultTheme = CustomTheme(
-    primaryColor: AppColors.black,
-    secondaryColor: AppColors.black,
-    backgroundColor: AppColors.black,
-    hintColor: AppColors.black,
-    successColor: AppColors.black,
-    errorColor: AppColors.black,
+    primaryColor: AppColors.blue,
+    secondaryColor: AppColors.yellow,
+    backgroundColor: AppColors.light,
+    hintColor: Color(0xff3d5a80),
+    successColor: AppColors.green,
+    errorColor: AppColors.red,
   );
 
   CustomTheme copyWith({

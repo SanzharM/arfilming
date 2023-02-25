@@ -1,3 +1,7 @@
+import 'package:arfilming/src/presentation/screens/home/home_screen.dart';
+import 'package:arfilming/src/presentation/screens/nav_bar_widget.dart';
+import 'package:arfilming/src/presentation/screens/profile/profile_screen.dart';
+import 'package:arfilming/src/presentation/screens/settings/settings_screen.dart';
 import 'package:arfilming/src/service_locator.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -23,10 +27,11 @@ class AppRouter {
     return Navigator.of(context);
   }
 
-  static final routes = <String, Widget Function(BuildContext _)>{
-    _Routes.initial: (_) => Container(),
-    _Routes.home: (_) => Container(),
-    _Routes.settings: (_) => Container(),
+  static final routes = <String, Widget Function(BuildContext context)>{
+    _Routes.initial: (_) => const NavBarWidget(),
+    _Routes.home: (_) => const HomeScreen(),
+    _Routes.settings: (_) => const SettingsScreen(),
+    _Routes.profile: (_) => const ProfileScreen(),
   };
 
   static Route<dynamic>? onGenerateRoute(RouteSettings? settings) {
@@ -55,10 +60,13 @@ class AppRouter {
   // SHORTCUTS
   void toHome() => _navigator.pushNamed(_Routes.home);
   void toSettings() => _navigator.pushNamed(_Routes.settings);
+  void toOnboarding() => _navigator.pushNamed(_Routes.onboarding);
 }
 
 class _Routes {
-  static String initial = '/';
-  static String home = initial;
-  static String settings = '/settings';
+  static const String initial = '/';
+  static const String home = '/home';
+  static const String settings = '/settings';
+  static const String profile = '/profile';
+  static const String onboarding = '/onboarding';
 }

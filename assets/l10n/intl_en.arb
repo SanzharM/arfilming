@@ -1,1 +1,15 @@
-{}
+{
+    "Arfilming": "Arfilming",
+    "add": "Add",
+    "remove": "Remove",
+    "edit": "Edit",
+    "delete": "Delete",
+    "home": "Home",
+    "profile": "Profile",
+    "search": "Search",
+    "settings": "settings",
+    "next": "Next",
+    "back": "Back",
+    "start": "Start",
+    "finish": "Finish"
+}

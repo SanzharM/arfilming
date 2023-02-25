@@ -135,3 +135,6 @@ flutter_gen:
       - assets/colors/colors.xml
     outputs:
       class_name: AppColors
+  
+  rive:
+    enabled: true

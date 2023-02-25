@@ -1,8 +1,10 @@
 import 'package:arfilming/src/core/constants/app_constraints.dart';
 import 'package:arfilming/src/core/l10n/generated/l10n.dart';
 import 'package:arfilming/src/core/services/utils.dart';
-import 'package:arfilming/src/domain/blocs/bloc/theme_bloc.dart';
+import 'package:arfilming/src/domain/blocs/bloc/movie_detail_bloc.dart';
 import 'package:arfilming/src/domain/blocs/localization/localization_bloc.dart';
+import 'package:arfilming/src/domain/blocs/nav_bar/nav_bar_bloc.dart';
+import 'package:arfilming/src/domain/blocs/theme/theme_bloc.dart';
 import 'package:arfilming/src/presentation/app_router.dart';
 import 'package:arfilming/src/presentation/theme/app_theme.dart';
 import 'package:flutter/material.dart';
@@ -26,6 +28,12 @@ class Application extends StatelessWidget {
         BlocProvider<ThemeBloc>(
           lazy: false,
           create: (_) => ThemeBloc()..initial(),
+        ),
+        BlocProvider<NavBarBloc>(
+          create: (_) => NavBarBloc(),
+        ),
+        BlocProvider<MovieDetailBloc>(
+          create: (_) => MovieDetailBloc(),
         ),
       ],
       child: const _Application(),

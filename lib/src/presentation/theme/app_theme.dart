@@ -25,26 +25,20 @@ class AppTheme {
     bool isDark = customTheme.themeMode == ThemeMode.dark;
     Brightness brightness = isDark ? Brightness.light : Brightness.dark;
     return ThemeData(
-      bottomSheetTheme: BottomSheetThemeData(
-        backgroundColor: customTheme.backgroundColor,
-        elevation: 0,
-        clipBehavior: Clip.hardEdge,
-        shape: const RoundedRectangleBorder(
-          borderRadius: AppConstraints.borderRadiusTLR,
-        ),
-        constraints: BoxConstraints(
-          maxHeight: 706.h,
-          minHeight: 150.h,
-        ),
-      ),
+      scaffoldBackgroundColor: customTheme.backgroundColor,
       appBarTheme: AppBarTheme(
         systemOverlayStyle: isDark ? SystemUiOverlayStyle.dark : SystemUiOverlayStyle.light,
-        backgroundColor: customTheme.primaryColor,
-        titleTextStyle: AppTextTheme.titleLarge,
+        backgroundColor: customTheme.backgroundColor,
+        titleTextStyle: AppTextTheme.titleLarge.apply(
+          color: customTheme.primaryColor,
+        ),
         elevation: 0,
         iconTheme: _iconThemeData(customTheme.primaryColor),
       ),
+      hintColor: customTheme.hintColor,
+      highlightColor: customTheme.successColor,
       iconTheme: _iconThemeData(customTheme.primaryColor),
+      textTheme: AppTextTheme.theme(customTheme.primaryColor),
       cupertinoOverrideTheme: NoDefaultCupertinoThemeData(
         brightness: brightness,
         primaryColor: customTheme.primaryColor,
@@ -53,8 +47,12 @@ class AppTheme {
         primaryContrastingColor: customTheme.secondaryColor,
         textTheme: CupertinoTextThemeData(
           primaryColor: customTheme.primaryColor,
-          actionTextStyle: AppTextTheme.titleMedium,
-          textStyle: AppTextTheme.bodyMedium,
+          actionTextStyle: AppTextTheme.titleMedium.apply(
+            color: customTheme.primaryColor,
+          ),
+          textStyle: AppTextTheme.bodyMedium.apply(
+            color: customTheme.primaryColor,
+          ),
         ),
       ),
       colorScheme: ColorScheme(
@@ -69,6 +67,18 @@ class AppTheme {
         onError: customTheme.errorColor,
         surface: customTheme.hintColor,
         onSurface: customTheme.hintColor,
+      ),
+      bottomSheetTheme: BottomSheetThemeData(
+        backgroundColor: customTheme.backgroundColor,
+        elevation: 0,
+        clipBehavior: Clip.hardEdge,
+        shape: const RoundedRectangleBorder(
+          borderRadius: AppConstraints.borderRadiusTLR,
+        ),
+        constraints: BoxConstraints(
+          maxHeight: 706.h,
+          minHeight: 150.h,
+        ),
       ),
     );
   }

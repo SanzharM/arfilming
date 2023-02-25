@@ -6,5 +6,10 @@
     <color name="transparent">#00000000</color>
     
     <!-- APP THEME -->
-    
+    <color name="blue">#0d3b66</color>
+    <color name="light">#faf0ca</color>
+    <color name="yellow">#f4d35e</color>
+    <color name="orange">#ee964b</color>
+    <color name="red">#f95738</color>
+    <color name="green">#70e000</color>
 </resources>

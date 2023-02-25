@@ -4,26 +4,26 @@ import 'package:flutter/material.dart';
 class AppTextTheme {
   static const String fontFamily = AppFonts.raleway;
 
-  static TextTheme theme() => const TextTheme(
+  static TextTheme theme(Color? color) => TextTheme(
         // Display
-        displaySmall: displaySmall,
-        displayMedium: displayMedium,
-        displayLarge: displayLarge,
+        displaySmall: displaySmall.apply(color: color),
+        displayMedium: displayMedium.apply(color: color),
+        displayLarge: displayLarge.apply(color: color),
 
         // Body
-        bodySmall: bodySmall,
-        bodyMedium: bodyMedium,
-        bodyLarge: bodyLarge,
+        bodySmall: bodySmall.apply(color: color),
+        bodyMedium: bodyMedium.apply(color: color),
+        bodyLarge: bodyLarge.apply(color: color),
 
         // Title
-        titleSmall: titleSmall,
-        titleMedium: titleMedium,
-        titleLarge: titleLarge,
+        titleSmall: titleSmall.apply(color: color),
+        titleMedium: titleMedium.apply(color: color),
+        titleLarge: titleLarge.apply(color: color),
 
         // Headline
-        headlineSmall: headlineSmall,
-        headlineMedium: headlineMedium,
-        headlineLarge: headlineLarge,
+        headlineSmall: headlineSmall.apply(color: color),
+        headlineMedium: headlineMedium.apply(color: color),
+        headlineLarge: headlineLarge.apply(color: color),
       );
 
   // -------------------------------- DISPLAY --------------------------------

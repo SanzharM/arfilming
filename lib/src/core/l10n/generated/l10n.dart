@@ -179,6 +179,126 @@ class S {
       args: [],
     );
   }
+
+  /// `Error`
+  String get error {
+    return Intl.message(
+      'Error',
+      name: 'error',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Success`
+  String get success {
+    return Intl.message(
+      'Success',
+      name: 'success',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Done`
+  String get done {
+    return Intl.message(
+      'Done',
+      name: 'done',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Warning`
+  String get warning {
+    return Intl.message(
+      'Warning',
+      name: 'warning',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Something went wrong`
+  String get somethingWentWrong {
+    return Intl.message(
+      'Something went wrong',
+      name: 'somethingWentWrong',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `List is empty`
+  String get listIsEmpty {
+    return Intl.message(
+      'List is empty',
+      name: 'listIsEmpty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Log in`
+  String get login {
+    return Intl.message(
+      'Log in',
+      name: 'login',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign up`
+  String get signup {
+    return Intl.message(
+      'Sign up',
+      name: 'signup',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Authentication`
+  String get authentication {
+    return Intl.message(
+      'Authentication',
+      name: 'authentication',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Regisrtation`
+  String get registration {
+    return Intl.message(
+      'Regisrtation',
+      name: 'registration',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Popular`
+  String get popular {
+    return Intl.message(
+      'Popular',
+      name: 'popular',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Movie lists`
+  String get movieLists {
+    return Intl.message(
+      'Movie lists',
+      name: 'movieLists',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

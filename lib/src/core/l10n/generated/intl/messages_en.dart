@@ -24,16 +24,30 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "Arfilming": MessageLookupByLibrary.simpleMessage("Arfilming"),
         "add": MessageLookupByLibrary.simpleMessage("Add"),
+        "authentication":
+            MessageLookupByLibrary.simpleMessage("Authentication"),
         "back": MessageLookupByLibrary.simpleMessage("Back"),
         "delete": MessageLookupByLibrary.simpleMessage("Delete"),
+        "done": MessageLookupByLibrary.simpleMessage("Done"),
         "edit": MessageLookupByLibrary.simpleMessage("Edit"),
+        "error": MessageLookupByLibrary.simpleMessage("Error"),
         "finish": MessageLookupByLibrary.simpleMessage("Finish"),
         "home": MessageLookupByLibrary.simpleMessage("Home"),
+        "listIsEmpty": MessageLookupByLibrary.simpleMessage("List is empty"),
+        "login": MessageLookupByLibrary.simpleMessage("Log in"),
+        "movieLists": MessageLookupByLibrary.simpleMessage("Movie lists"),
         "next": MessageLookupByLibrary.simpleMessage("Next"),
+        "popular": MessageLookupByLibrary.simpleMessage("Popular"),
         "profile": MessageLookupByLibrary.simpleMessage("Profile"),
+        "registration": MessageLookupByLibrary.simpleMessage("Regisrtation"),
         "remove": MessageLookupByLibrary.simpleMessage("Remove"),
         "search": MessageLookupByLibrary.simpleMessage("Search"),
         "settings": MessageLookupByLibrary.simpleMessage("settings"),
-        "start": MessageLookupByLibrary.simpleMessage("Start")
+        "signup": MessageLookupByLibrary.simpleMessage("Sign up"),
+        "somethingWentWrong":
+            MessageLookupByLibrary.simpleMessage("Something went wrong"),
+        "start": MessageLookupByLibrary.simpleMessage("Start"),
+        "success": MessageLookupByLibrary.simpleMessage("Success"),
+        "warning": MessageLookupByLibrary.simpleMessage("Warning")
       };
 }

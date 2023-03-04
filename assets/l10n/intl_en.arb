@@ -1,5 +1,6 @@
 {
     "Arfilming": "Arfilming",
+    
     "add": "Add",
     "remove": "Remove",
     "edit": "Edit",
@@ -11,5 +12,20 @@
     "next": "Next",
     "back": "Back",
     "start": "Start",
-    "finish": "Finish"
+    "finish": "Finish",
+
+    "error": "Error",
+    "success": "Success",
+    "done": "Done",
+    "warning": "Warning",
+    "somethingWentWrong": "Something went wrong",
+    "listIsEmpty": "List is empty",
+
+    "login": "Log in",
+    "signup": "Sign up",
+    "authentication": "Authentication",
+    "registration": "Regisrtation",
+
+    "popular": "Popular",
+    "movieLists": "Movie lists"
 }

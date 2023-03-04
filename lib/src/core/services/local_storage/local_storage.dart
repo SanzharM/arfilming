@@ -14,6 +14,7 @@ class LocalStorage {
   static const String _localKey = '${_prefix}LocalKey';
   static const String _themeKey = '${_prefix}ThemeKey';
   static const String _onboardingKey = '${_prefix}OnboardingKey';
+  static const String _sessionKey = '${_prefix}SessionKey';
 
   Future<void> setLocale(Locale? locale) async {
     if (locale == null) {
@@ -62,5 +63,17 @@ class LocalStorage {
 
   Future<bool> getOnboardingShowed() async {
     return (await _storage.read(key: _onboardingKey)) != null;
+  }
+
+  Future<String?> getSession() async {
+    return _storage.read(key: _sessionKey);
+  }
+
+  Future<void> setSession(String? value) async {
+    if (value?.isEmpty ?? true) {
+      return _storage.delete(key: _sessionKey);
+    } else {
+      return _storage.write(key: _sessionKey, value: value);
+    }
   }
 }

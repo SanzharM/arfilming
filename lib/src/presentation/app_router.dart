@@ -1,5 +1,6 @@
 import 'package:arfilming/src/presentation/screens/home/home_screen.dart';
 import 'package:arfilming/src/presentation/screens/nav_bar_widget.dart';
+import 'package:arfilming/src/presentation/screens/onboarding/onboarding_screen.dart';
 import 'package:arfilming/src/presentation/screens/profile/profile_screen.dart';
 import 'package:arfilming/src/presentation/screens/settings/settings_screen.dart';
 import 'package:arfilming/src/service_locator.dart';
@@ -32,6 +33,7 @@ class AppRouter {
     _Routes.home: (_) => const HomeScreen(),
     _Routes.settings: (_) => const SettingsScreen(),
     _Routes.profile: (_) => const ProfileScreen(),
+    _Routes.onboarding: (_) => const OnboardingScreen(),
   };
 
   static Route<dynamic>? onGenerateRoute(RouteSettings? settings) {

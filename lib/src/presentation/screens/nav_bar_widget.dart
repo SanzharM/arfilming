@@ -1,5 +1,4 @@
 import 'package:arfilming/src/core/flutter_gen/generated/assets.gen.dart';
-import 'package:arfilming/src/core/flutter_gen/generated/colors.gen.dart';
 import 'package:arfilming/src/core/services/utils.dart';
 import 'package:arfilming/src/domain/blocs/nav_bar/nav_bar_bloc.dart';
 import 'package:arfilming/src/presentation/screens/home/home_screen.dart';
@@ -29,6 +28,17 @@ class _NavBarWidgetState extends State<NavBarWidget> {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
+
+    final colorFilter = ColorFilter.mode(
+      theme.hintColor.withOpacity(0.7),
+      BlendMode.srcIn,
+    );
+    final activeColorFilter = ColorFilter.mode(
+      theme.colorScheme.primary,
+      BlendMode.srcIn,
+    );
+
     return BlocBuilder<NavBarBloc, NavBarState>(
       builder: (context, state) {
         Widget getChild() {
@@ -45,13 +55,28 @@ class _NavBarWidgetState extends State<NavBarWidget> {
             onTap: context.read<NavBarBloc>().changeIndex,
             items: <BottomNavigationBarItem>[
               BottomNavigationBarItem(
-                icon: AppAssets.icons.home.svg(),
+                icon: AppAssets.icons.home.svg(
+                  colorFilter: colorFilter,
+                ),
+                activeIcon: AppAssets.icons.home.svg(
+                  colorFilter: activeColorFilter,
+                ),
               ),
               BottomNavigationBarItem(
-                icon: AppAssets.icons.squares.svg(),
+                icon: AppAssets.icons.squares.svg(
+                  colorFilter: colorFilter,
+                ),
+                activeIcon: AppAssets.icons.squares.svg(
+                  colorFilter: activeColorFilter,
+                ),
               ),
               BottomNavigationBarItem(
-                icon: AppAssets.icons.profile.svg(),
+                icon: AppAssets.icons.profile.svg(
+                  colorFilter: colorFilter,
+                ),
+                activeIcon: AppAssets.icons.profile.svg(
+                  colorFilter: activeColorFilter,
+                ),
               ),
             ],
           ),

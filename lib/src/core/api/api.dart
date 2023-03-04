@@ -3,8 +3,10 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:arfilming/src/core/api/api_endpoints.dart';
+import 'package:arfilming/src/core/services/local_storage/local_storage.dart';
 import 'package:arfilming/src/service_locator.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 export 'api_endpoints.dart';
@@ -14,8 +16,19 @@ part 'api_response.dart';
 enum Method { get, post, put, delete }
 
 class Api {
+  Api();
+
+  static final _options = BaseOptions(
+    baseUrl: ApiEndpoints.baseUrl,
+    headers: _headers,
+    contentType: 'application/json; charset=utf-8',
+  );
+  static final Dio _dio = Dio(
+    _options,
+  )..interceptors.add(_TokenInterceptor());
+
   static final Map<String, String> _headers = {
-    'Content-type': 'application/json',
+    'Accept': 'application/json',
   };
 
   static Future<bool> _checkInternetConnection() async {
@@ -43,11 +56,6 @@ class Api {
 
     http.Response? response;
 
-    // if (needToken) {
-    //   final token = await sl<LocalStorage>().getToken();
-    //   if (token?.isNotEmpty ?? false) _headers.addAll({'Authorization': 'Bearer ${token!}'});
-    // }
-
     final Uri url = Uri.https(
       uri.authority,
       uri.path,
@@ -57,21 +65,22 @@ class Api {
       },
     );
 
-    final body = jsonEncode(params);
+    final String body = jsonEncode(params);
 
     try {
       switch (method) {
         case Method.get:
+          // response = await _dio.getUri(url).timeout(timeout);
           response = await http.get(url, headers: _headers).timeout(timeout);
           break;
         case Method.post:
-          response = await http.post(url, headers: _headers, body: body).timeout(timeout);
+          response = await http.post(url, body: body, headers: _headers).timeout(timeout);
           break;
         case Method.put:
-          response = await http.put(url, headers: _headers, body: body).timeout(timeout);
+          response = await http.put(url, body: body, headers: _headers).timeout(timeout);
           break;
         case Method.delete:
-          response = await http.delete(url, headers: _headers, body: body).timeout(timeout);
+          response = await http.delete(url, body: body, headers: _headers).timeout(timeout);
           break;
       }
     } on TimeoutException catch (_) {
@@ -132,7 +141,7 @@ class Api {
   static void logResponse(http.Response response, {dynamic params}) {
     debugPrint('\nLog time: ${DateTime.now()}');
     debugPrint('URL: ${response.request?.url}');
-    debugPrint('Headers: ${response.request?.headers}');
+    debugPrint('Headers: ${response.headers}');
     debugPrint('Method: ${response.request?.method}');
     debugPrint('Status Code: ${response.statusCode}');
     if (params != null) debugPrint('Params: $params');
@@ -151,5 +160,20 @@ class Api {
     if (headers != null) debugPrint('Headers: $headers');
     if (body != null) debugPrint('Body: $body');
     debugPrint('------------\n');
+  }
+}
+
+class _TokenInterceptor extends InterceptorsWrapper {
+  @override
+  void onRequest(
+    RequestOptions options,
+    RequestInterceptorHandler handler,
+  ) async {
+    final session = await LocalStorage().getSession();
+    debugPrint('TOKEN: $session');
+    if (session?.isNotEmpty ?? false) {
+      options.queryParameters['session_id'] = session;
+    }
+    return super.onRequest(options, handler);
   }
 }
